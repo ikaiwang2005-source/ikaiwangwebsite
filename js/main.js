@@ -5,6 +5,7 @@ const modalGallery = document.querySelector("#modal-gallery");
 const modalTitle = document.querySelector("#modal-title");
 const modalCategory = document.querySelector("#modal-category");
 const modalDescription = document.querySelector("#modal-description");
+const modalModel = document.querySelector("#modal-model");
 const modalTags = document.querySelector("#modal-tags");
 const modalLinks = document.querySelector("#modal-links");
 const modalCode = document.querySelector("#modal-code");
@@ -20,6 +21,45 @@ function imageBlock(src, label, className) {
   }
 
   return `<div class="${className}"><img src="${src}" alt="${label}" loading="lazy"></div>`;
+}
+
+function modelBlock(project) {
+  if (!project.modelUrl) return "";
+
+  return `
+    <div class="model-frame">
+      <p class="model-label">Interactive 3D model</p>
+      <model-viewer
+        class="cad-model-viewer"
+        src="${project.modelUrl}"
+        alt="3D model of ${project.title}"
+        camera-controls
+        auto-rotate
+        shadow-intensity="1"
+        exposure="0.9"
+        camera-orbit="35deg 65deg auto"
+        field-of-view="35deg"
+        poster="${project.thumbnail}">
+      </model-viewer>
+      <div class="model-loading-overlay" aria-hidden="true">Loading interactive 3D model</div>
+    </div>
+  `;
+}
+
+function bindModelViewerLoadingState() {
+  const viewer = modalModel.querySelector("model-viewer");
+  const loadingOverlay = modalModel.querySelector(".model-loading-overlay");
+  if (!viewer || !loadingOverlay) return;
+
+  loadingOverlay.hidden = false;
+
+  viewer.addEventListener("load", () => {
+    loadingOverlay.hidden = true;
+  }, { once: true });
+
+  viewer.addEventListener("error", () => {
+    loadingOverlay.textContent = "Unable to load 3D model";
+  }, { once: true });
 }
 
 function renderProjects(category = "All") {
@@ -49,12 +89,16 @@ function openProject(id) {
   if (!project) return;
 
   modalGallery.innerHTML = project.gallery.map((src) => imageBlock(src, "Add image here", "gallery-image")).join("");
+  modalModel.innerHTML = modelBlock(project);
+  modalModel.hidden = !project.modelUrl;
+  bindModelViewerLoadingState();
   modalTitle.textContent = project.title;
   modalCategory.textContent = project.category;
   modalDescription.textContent = project.description;
   modalTags.innerHTML = project.tags.map((tag) => `<span class="tag ${categoryClass(project.category)}">${tag}</span>`).join("");
   modalLinks.innerHTML = [
     project.repoUrl ? `<a class="button secondary" href="${project.repoUrl}" target="_blank" rel="noopener">Code repo</a>` : "",
+    project.cadDownloadUrl ? `<a class="button secondary" href="${project.cadDownloadUrl}" target="_blank" rel="noopener">Download CAD file</a>` : "",
     project.cadUrl ? `<a class="button secondary" href="${project.cadUrl}" target="_blank" rel="noopener">CAD files</a>` : ""
   ].join("");
   modalCode.textContent = project.codeSnippet || "";

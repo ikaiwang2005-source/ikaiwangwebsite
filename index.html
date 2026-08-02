@@ -11,6 +11,7 @@
     <meta property="og:image" content="assets/images/social-preview.jpg">
     <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="css/style.css">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
   </head>
   <body>
     <div class="ambient" aria-hidden="true"></div>
@@ -92,8 +93,8 @@
             <p>I am a third-year Mechatronic Engineering student at Stellenbosch University with a strong interest in IoT, embedded systems, and data-driven technologies. These fields give me the technical foundation to design, build, and improve practical systems that solve real-world problems.</p>
             <p>My goal is to develop solutions that create meaningful value for individuals and businesses by improving efficiency, automation, and decision-making. I am currently expanding my embedded systems experience by learning and experimenting with the STM32 microcontroller platform.</p>
           </div>
-          <div class="headshot-placeholder" role="img" aria-label="Headshot placeholder">
-            <span>Add headshot here</span>
+          <div class="headshot-frame">
+            <img src="assets/images/professional-photo.png" alt="Portrait of I-Kai Wang">
           </div>
         </div>
         <div class="skills-grid reveal">
@@ -158,6 +159,7 @@
         <div class="modal-content">
           <p class="eyebrow" id="modal-category"></p>
           <h2 id="modal-title"></h2>
+          <div class="modal-model" id="modal-model"></div>
           <p id="modal-description"></p>
           <div class="tag-list" id="modal-tags"></div>
           <div class="modal-links" id="modal-links"></div>

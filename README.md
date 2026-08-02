@@ -13,6 +13,8 @@ To add a project:
 3. Drop project images into `assets/images`.
 4. Use relative image paths such as `assets/images/my-project-thumb.jpg`.
 5. Add repository links in `repoUrl` and CAD/download links in `cadUrl` when available.
+6. For interactive CAD previews, place `.glb` or `.gltf` files in `assets/cad` and set `modelUrl`.
+7. If an original STEP or Inventor file is available, place it in `assets/cad` and set `cadDownloadUrl`.
 
 Empty image fields render as dashed placeholder blocks labeled `Add image here`.
 
