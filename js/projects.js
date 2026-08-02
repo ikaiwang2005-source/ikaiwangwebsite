@@ -87,12 +87,12 @@ const projects = [
     title: "Automated Storage and Retrieval System CAD Model",
     category: "CAD",
     tags: ["3D CAD", "Mechanical Design", "AS/RS", "Load Analysis", "Interactive GLB"],
-    thumbnail: "assets/images/angeline-presentation/page-01-image-01.png",
+    thumbnail: "assets/images/presentation/page-01-image-01.png",
     gallery: [
-      "assets/images/angeline-presentation/page-01-image-01.png",
-      "assets/images/angeline-presentation/page-17-image-01.png",
-      "assets/images/angeline-presentation/page-20-image-01.png",
-      "assets/images/angeline-presentation/page-09-image-04.png"
+      "assets/images/presentation/page-01-image-01.png",
+      "assets/images/presentation/page-17-image-01.png",
+      "assets/images/presentation/page-20-image-01.png",
+      "assets/images/presentation/page-09-image-04.png"
     ],
     summary: "Developed a CAD-focused AS/RS concept with X, Y, and Z subsystems, a load-bearing frame, drivetrain choices, and documented safety checks.",
     description: "Created and documented an automated storage and retrieval system concept covering the mechanical architecture, subsystem selection, and structural reasoning behind the design. The system includes a rear-wheel-driven X-axis, a rack-and-pinion Y-axis fork actuator, a power-screw-based Z-axis, and a welded frame/chassis structure designed around pallet handling, rail guidance, stiffness, maintainability, and manufacturability. The design work considered payload capacity, shelf heights, rail constraints, non-derailment, bearing life, shaft deflection, drivetrain sizing, fork deflection, buckling, fatigue, weld stresses, tipping stability, and material selection.",
