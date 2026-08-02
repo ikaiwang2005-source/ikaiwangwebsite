@@ -1,6 +1,6 @@
-# Ikai Wang Portfolio
+# I-Kai Wang Portfolio
 
-Static personal portfolio site for software, IoT, panel building, and CAD design work. It uses plain HTML, CSS, and JavaScript with no build step, so GitHub Pages can serve it directly.
+Static personal portfolio site for software, IoT, panel building, embedded systems, and CAD-informed design work. It uses plain HTML, CSS, and JavaScript with no build step, so GitHub Pages can serve it directly.
 
 ## Edit Project Content
 
